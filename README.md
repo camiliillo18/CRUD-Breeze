@@ -1,59 +1,100 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Fleet Simulator - Laravel & Breeze
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+**Fleet Simulator** es una plataforma de gestión de flotas diseñada para administrar vehículos de manera eficiente. Construida sobre el ecosistema de **Laravel**, integra un sistema de autenticación seguro y un control total (CRUD) sobre la entidad de coches.
 
-## About Laravel
+---
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## Funcionalidades
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+### Gestión de Acceso
+* **Registro de Usuarios:** Sistema de alta para nuevos administradores.
+* **Autenticación (Login/Logout):** Acceso protegido mediante Laravel Breeze.
+* **Seguridad:** Rutas protegidas que requieren validación de sesión.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+### Panel de Gestión de Flota (CRUD)
+* **Visualización:** Listado detallado de todos los coches en el sistema.
+* **Creación:** Registro de nuevos vehículos con especificaciones técnicas.
+* **Edición:** Actualización de información en tiempo real.
+* **Eliminación:** Retirada de vehículos de la base de datos.
 
-## Learning Laravel
+---
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework. You can also check out [Laravel Learn](https://laravel.com/learn), where you will be guided through building a modern Laravel application.
+## Flujo de la Aplicación
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+A continuación se detallan las capturas del flujo principal:  
 
-## Laravel Sponsors
+### 1. Inicio de la Aplcación
+| Inicio |
+|:---:|
+| ![Inicio](./public/imgs/start-app.png) |
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+### 2. Autenticación
+| Inicio de Sesión | Registro de Usuario |
+|:---:|:---:|
+| ![Login](./public/imgs/login.png) | ![Registro](./public/imgs/register.png) |
 
-### Premium Partners
+### 3. Principio de app
+| Principio de app
+|:---:|
+| ![Principio](./public/imgs/main-app.png) |
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+### 4. Gestión de Flota
+| Listado General | Registro de Vehículo |
+|:---:|:---:|
+| ![Dashboard](./public/imgs/dashboard.png) | ![Create](./screenshots/create.png) |
 
-## Contributing
+### 5. Edición y Control
+| Edición de Datos 
+|:---:|
+| ![Edit](./public/imgs/edit.png) |
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+---
 
-## Code of Conduct
+## Instalación y Configuración
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+Sigue estos pasos para desplegar **Fleet Simulator** localmente:
 
-## Security Vulnerabilities
+### 1. Preparación del Proyecto
+Clona el repositorio y accede a la carpeta:
+```bash
+git clone [https://github.com/camiliillo18/CRUD-Breeze.git](https://github.com/camiliillo18/CRUD-Breeze.git)
+cd CRUD-Breeze
+```
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+### 2. Instalar dependencias
+Instala los paquetes de PHP (Composer) y de JavaScript (NPM):
+```bash
+composer install
+npm install
+```
 
-## License
+### 3. Configurar variables de entorno
+Copia el archivo de ejemplo y genera la clave de la aplicación:
+```bash
+cp .env.example .env
+php artisan key:generate
+```
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+### 4. Migrar la base de datos
+Crea las tablas necesarias (incluyendo la de usuarios y coches):
+```bash
+php artisan migrate
+```
+
+## Ejecución
+Compilar assets (Tailwind/Vite):
+```bash
+npm run dev
+```
+
+Iniciar el servidor local:
+```bash
+php artisan serve
+```
+
+## Tecnologías Utilizadas
+* Laravel (Framework PHP)
+* Laravel Breeze (Autenticación minimalista)
+* Tailwind CSS (Estilos)
+* Vite (Build tool)
+* MySQL (Base de datos)
