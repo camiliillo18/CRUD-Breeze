@@ -41,7 +41,7 @@ A continuación se detallan las capturas del flujo principal:
 ### 4. Gestión de Flota
 | Listado General | Registro de Vehículo |
 |:---:|:---:|
-| ![Dashboard](./public/imgs/dashboard.png) | ![Create](./screenshots/create.png) |
+| ![Dashboard](./public/imgs/dashboard.png) | ![Create](./public/imgs/create.png) |
 
 ### 5. Edición y Control
 | Edición de Datos 
